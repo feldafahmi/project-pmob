@@ -25,7 +25,7 @@ class UserModel {
       name: json['name'],
       email: json['email'],
       // Pastikan key 'university_name' ini persis sama dengan yang dikirim dari Backend/API kamu
-      universityName: json['university_name'], 
+      universityName: json['university_name'],
       role: json['role'] ?? 'user',
       token: json['token'],
     );
