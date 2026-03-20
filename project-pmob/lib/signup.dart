@@ -39,7 +39,7 @@ class _SignupPageState extends State<SignupPage> {
                   child: Image.asset(
                     'assets/Rectangle 4302.png',
                     fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => Container(
+                    errorBuilder: (_, _, _) => Container(
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           begin: Alignment.topLeft,
@@ -61,7 +61,7 @@ class _SignupPageState extends State<SignupPage> {
                         'assets/Cuplikan layar 2026-02-25 112508.png 1.png',
                         width: 34,
                         height: 33,
-                        errorBuilder: (_, __, ___) => const Icon(
+                        errorBuilder: (_, _, _) => const Icon(
                           Icons.business,
                           size: 34,
                           color: Colors.white,
@@ -340,7 +340,7 @@ class _SignupPageState extends State<SignupPage> {
                                 'assets/colourful-google-text-logo-on-white-background-free-vector 1.png',
                                 width: 20,
                                 height: 20,
-                                errorBuilder: (_, __, ___) => const Icon(Icons.g_mobiledata, size: 24, color: Colors.red),
+                                errorBuilder: (_, _, _) => const Icon(Icons.g_mobiledata, size: 24, color: Colors.red),
                               ),
                               const SizedBox(width: 6),
                               const Text('Google', style: TextStyle(fontSize: 13, color: Colors.black87)),

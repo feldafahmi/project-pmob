@@ -118,7 +118,7 @@ class Homepage extends StatelessWidget {
           'assets/Cuplikan layar 2026-02-25 112508.png 1.png',
           width: 30,
           height: 30,
-          errorBuilder: (_, __, ___) => Icon(Icons.business, size: 30, color: Colors.blue.shade700),
+          errorBuilder: (_, _, _) => Icon(Icons.business, size: 30, color: Colors.blue.shade700),
         ),
         const SizedBox(width: 8),
         const Text('MARK-UP', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
@@ -153,7 +153,7 @@ class Homepage extends StatelessWidget {
           child: Image.asset(
             'assets/pexels-francesco-ungaro-96427 1.png',
             fit: BoxFit.cover,
-            errorBuilder: (_, __, ___) => Container(color: Colors.blueGrey.shade900),
+            errorBuilder: (_, _, _) => Container(color: Colors.blueGrey.shade900),
           ),
         ),
         Container(
@@ -401,7 +401,7 @@ class Homepage extends StatelessWidget {
               width: l['w'] as double,
               height: l['h'] as double,
               fit: BoxFit.contain,
-              errorBuilder: (_, __, ___) => Container(
+              errorBuilder: (_, _, _) => Container(
                 width: l['w'] as double,
                 height: l['h'] as double,
                 decoration: BoxDecoration(

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(const _PreviewApp());
 
 class _PreviewApp extends StatelessWidget {
-  const _PreviewApp({super.key});
+  const _PreviewApp();
   @override
   Widget build(BuildContext context) => const MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -127,7 +127,7 @@ class _SplashScreenState extends State<SplashScreen>
               children: [
                 AnimatedBuilder(
                   animation: _logoCtrl,
-                  builder: (_, __) => Opacity(
+                  builder: (_, _) => Opacity(
                     opacity: _logoOpacity.value,
                     child: Transform.scale(
                       scale: _logoScale.value,
@@ -189,7 +189,7 @@ class _SplashScreenState extends State<SplashScreen>
 
 // ── Blob background ───────────────────────────
 class _BlobBackground extends StatelessWidget {
-  const _BlobBackground({super.key}); 
+  const _BlobBackground(); 
 
   @override
   Widget build(BuildContext context) {
@@ -232,13 +232,14 @@ class _BlobBackground extends StatelessWidget {
               )
             ],
           ),
+          
         ),
       );
 }
 
 // ── Bouncing dots ─────────────────────────────
 class _BouncingDots extends StatefulWidget {
-  const _BouncingDots({super.key}); 
+  const _BouncingDots(); 
 
   @override
   State<_BouncingDots> createState() => _BouncingDotsState();
@@ -303,7 +304,7 @@ class _BouncingDotsState extends State<_BouncingDots>
       children: List.generate(4, (i) {
         return AnimatedBuilder(
           animation: _controllers[i],
-          builder: (_, __) => Transform.translate(
+          builder: (_, _) => Transform.translate(
             offset: Offset(0, _animations[i].value),
             child: Container(
               width: 10,
