@@ -4,8 +4,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../config/app_theme.dart';
 
+/// Bottom navigation bar Mark-Up.
+/// Mengikuti design Produk Screen: active = pill purple solid
+/// (icon putih + label uppercase di samping), inactive = icon abu.
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({
     super.key,
@@ -16,39 +18,34 @@ class CustomBottomNavBar extends StatelessWidget {
   final int currentIndex;
   final ValueChanged<int> onTap;
 
+  static const Color _muted = Color(0xFF757684);
+  static const Color _border = Color(0x14001261);
+
   static const List<_NavItem> _items = [
     _NavItem(icon: Icons.home_rounded, label: 'Home'),
     _NavItem(icon: Icons.emoji_events_rounded, label: 'Lomba'),
-    _NavItem(icon: Icons.menu_book_rounded, label: 'Modul'),
+    _NavItem(icon: Icons.menu_book_rounded, label: 'Produk'),
     _NavItem(icon: Icons.person_rounded, label: 'Profil'),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 10,
-            offset: const Offset(0, -4),
-          ),
-        ],
+        border: Border(top: BorderSide(color: _border, width: 1)),
       ),
       child: SafeArea(
         top: false,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+          padding: const EdgeInsets.fromLTRB(12, 10, 12, 12),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: List.generate(_items.length, (i) {
-              return Expanded(
-                child: _NavButton(
-                  item: _items[i],
-                  isActive: i == currentIndex,
-                  onTap: () => onTap(i),
-                ),
+              return _NavButton(
+                item: _items[i],
+                isActive: i == currentIndex,
+                onTap: () => onTap(i),
               );
             }),
           ),
@@ -77,24 +74,22 @@ class _NavButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const Color activeBg = Color(0xFFEDE7F6);
-    const Color activeFg = AppColors.secondary;
-    final Color inactiveFg = Colors.grey.shade500;
+    const Color activeBg = Color(0xFFA600B2);
 
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(24),
+      borderRadius: BorderRadius.circular(99),
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
+        duration: const Duration(milliseconds: 220),
+        curve: Curves.easeOut,
         padding: EdgeInsets.symmetric(
-          horizontal: isActive ? 10 : 8,
-          vertical: 8,
+          horizontal: isActive ? 16 : 10,
+          vertical: 7,
         ),
         decoration: BoxDecoration(
           color: isActive ? activeBg : Colors.transparent,
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(99),
         ),
-        // FittedBox memastikan konten tidak overflow saat layar sempit.
         child: FittedBox(
           fit: BoxFit.scaleDown,
           child: Row(
@@ -103,17 +98,19 @@ class _NavButton extends StatelessWidget {
             children: [
               Icon(
                 item.icon,
-                size: 22,
-                color: isActive ? activeFg : inactiveFg,
+                size: 20,
+                color:
+                    isActive ? Colors.white : CustomBottomNavBar._muted,
               ),
               if (isActive) ...[
                 const SizedBox(width: 6),
                 Text(
-                  item.label,
-                  style: GoogleFonts.poppins(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                    color: activeFg,
+                  item.label.toUpperCase(),
+                  style: GoogleFonts.manrope(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                    letterSpacing: 0.6,
                   ),
                 ),
               ],

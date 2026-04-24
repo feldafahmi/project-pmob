@@ -10,6 +10,7 @@ import 'viewmodels/auth_viewmodel.dart';
 import 'viewmodels/competition_viewmodel.dart';
 import 'viewmodels/dashboard_viewmodel.dart';
 import 'viewmodels/course_provider.dart';
+import 'viewmodels/product_viewmodel.dart';
 
 void main() {
   // Pastikan interceptor token di Dio sudah ter-register sebelum
@@ -23,6 +24,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => DashboardViewModel()),
         ChangeNotifierProvider(create: (_) => CourseProvider()),
         ChangeNotifierProvider(create: (_) => CompetitionViewModel()),
+        ChangeNotifierProvider(create: (_) => ProductViewModel()),
       ],
       child: const MarkUpApp(),
     ),

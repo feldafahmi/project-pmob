@@ -9,6 +9,7 @@ import '../config/app_theme.dart';
 import '../widgets/custom_bottom_nav_bar.dart';
 import 'competition_screen/competition_screen.dart';
 import 'dashboard_screen/dashboard_screen.dart';
+import 'product_screen/product_screen.dart';
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
@@ -23,11 +24,7 @@ class _MainNavigationState extends State<MainNavigation> {
   static const List<Widget> _pages = [
     DashboardScreen(),
     CompetitionScreen(),
-    _PlaceholderPage(
-      title: 'Modul',
-      description: 'Halaman modul sedang dalam pengembangan.',
-      icon: Icons.menu_book_rounded,
-    ),
+    ProductScreen(),
     _PlaceholderPage(
       title: 'Profil',
       description: 'Halaman profil sedang dalam pengembangan.',
